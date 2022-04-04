@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
 
-const fetchValues = async (url,buySelector) => {
+const fetchValues = async (url:any) => {
     try {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
@@ -13,13 +13,15 @@ const fetchValues = async (url,buySelector) => {
             return{ pageData: document.documentElement.innerHTML,};
         });
 
+        console.log(typeof(pageData))
+
         const buy_priceData = await page.evaluate(()=>{
-           return{ compra: document.querySelector('div.first > span.data-compra').innerText,
+           return{ compra: document.querySelector('div.first > span.data-compra').textContent,
         };
       });
 
         const sell_priceData = await page.evaluate(()=>{
-        return{venta: document.querySelector('div.second > span.data-venta').innerText,
+        return{venta: document.querySelector('div.second > span.data-venta').textContent,
         };
         });
 
