@@ -1,3 +1,3 @@
 # PRUEBA BACK PLUGGY
 ***
-![OBJETO dataDolar](assets\OBJECT.png)
+![OBJETO dataDolar](https://github.com/jessicajoya/BACKPLUGGY/blob/main/assets/OBJECT.png)
