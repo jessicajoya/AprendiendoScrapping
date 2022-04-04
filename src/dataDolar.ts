@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
 
-const fetchValues = async (url:any) => {
+const fetchValues = async (url) => {
     try {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
