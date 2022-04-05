@@ -1,9 +1,9 @@
-const axios = require ("axios");
-const cheerio = require('cheerio');
+// const axios = require ("axios");
+//const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
 
-const fetchValues = async (url) => {
+export const fetchValues = async (url) => {
     try {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
@@ -13,16 +13,13 @@ const fetchValues = async (url) => {
             return{ pageData: document.documentElement.innerHTML,};
         });
 
-        console.log(typeof(pageData))
-
         const buy_priceData = await page.evaluate(()=>{
-           return{ compra: document.querySelector('div.first > span.data-compra').textContent,
-        };
+           return document.querySelector('div.first > span.data-compra')!.textContent;
       });
 
         const sell_priceData = await page.evaluate(()=>{
-        return{venta: document.querySelector('div.second > span.data-venta').textContent,
-        };
+        return document.querySelector('div.second > span.data-venta')!.textContent;
+    
         });
 
      
@@ -38,5 +35,4 @@ const fetchValues = async (url) => {
     }
    };
    
-   fetchValues('https://www.ambito.com/contenidos/dolar-informal.html').then((values) => console.log(values));
-   
+   //fetchValues('https://www.ambito.com/contenidos/dolar-informal.html').then((values) => console.log(values));

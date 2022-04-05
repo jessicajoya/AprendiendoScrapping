@@ -1,12 +1,8 @@
-/config/
-node_modules/
+# API keys and secrets
+.env
 
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
-*.json
+# Dependency directory
+node_modules
+
+# Ignore built ts files
+dist
