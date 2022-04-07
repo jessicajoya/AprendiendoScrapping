@@ -1,5 +1,5 @@
-export interface Quote{
-    url:string,
-    buyPattern:string,
-    sellPattern:string
-  }
+export interface Quote {
+  url: string;
+  buyPattern: string;
+  sellPattern: string;
+}

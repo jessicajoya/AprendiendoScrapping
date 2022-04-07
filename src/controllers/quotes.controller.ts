@@ -19,9 +19,11 @@ export function getAverage(req: Request, res: Response, next: NextFunction) {
     sumaSellPrice += value.sell_price;
   }
 
-  //sacarlo para no repetir codigo
   let average_buy_price = sumaBuyPrice / bd.length;
   let average_sellprice = sumaSellPrice / bd.length;
+
+  //sacarlo para no repetir codigo
+
   try {
     return res.status(200).send({
       average_buy_price: average_buy_price,
@@ -47,12 +49,9 @@ export function getSlippage(req: Request, res: Response, next: NextFunction) {
   let average_sell_price = sumaSellPrice / bd.length;
 
   for (let value of bd) {
-    // "buy_price_slippage": 0.04,
-    // "sell_price_slippage": -0.06,
-    // "source": "https://www.ambito.com/contenidos/dolar.html"
     arrSlippage.push({
-      buy_price_slippage: value.buy_price / average_buy_price,
-      sell_price_slippage: value.sell_price / average_sell_price,
+      buy_price_slippage: (value.buy_price / average_buy_price).toFixed(1),
+      sell_price_slippage: (value.sell_price / average_sell_price).toFixed(),
       source: value.source,
     });
   }
