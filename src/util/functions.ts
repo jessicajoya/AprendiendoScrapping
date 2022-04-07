@@ -26,8 +26,8 @@ const fetchValuesDolarHoy = async () => {
     });
 
     let objectValues = {
-      buy_price: buy_priceData,
-      sell_price: sell_priceData,
+      buy_price: parseInt(buy_priceData.replace(/[$.]/g,'')),
+      sell_price: parseInt(sell_priceData.replace(/[$.]/g,'')),
       source: "https://dolarhoy.com/",
     };
     page.close();
@@ -56,8 +56,8 @@ const fetchValuesCronista = async () => {
     });
 
     let objectValues2 = {
-      buy_price: buy_priceData2,
-      sell_price: sell_priceData2,
+      buy_price: parseInt(buy_priceData2.replace(/[$.]/g,'')),
+      sell_price: parseInt(sell_priceData2.replace(/[$.]/g,'')),
       source: 'https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB',
     };
     page.close();
@@ -91,8 +91,8 @@ const fetchValuesAmbito = async () => {
     });
 
     let objectValues3 = {
-      buy_price: buy_priceData3,
-      sell_price: sell_priceData3,
+      buy_price: parseInt(buy_priceData3),
+      sell_price: parseInt(sell_priceData3),
       source:'https://www.ambito.com/contenidos/dolar-informal.html',
     };
     

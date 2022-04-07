@@ -23,5 +23,5 @@ cron.schedule('* * * * *',()=>{
 export let bd: any = [];
 
 
-console.log(bd)
+console.log(bd)  
 
