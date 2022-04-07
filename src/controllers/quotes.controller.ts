@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { Quote } from "../interfaces/objectQuotes";
-import { fetchValues } from "../util/functions";
+
 import { bd } from "../app";
 
 export function getQuotes(req: Request, res: Response, next: NextFunction) {
